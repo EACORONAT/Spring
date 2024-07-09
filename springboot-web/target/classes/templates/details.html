@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pestaña}"></title>
+</head>
+<body>
+    <h1 th:text="${titulo}"></h1>
+    <ul>
+        <li th:text="${usuario.nombre}"></li>
+        <li th:text="${usuario.apellido}"></li>
+        <!-- Evalua si es null y lo oculta: -->
+        <li th:if="${usuario.correo != null}" th:text="${usuario.correo}"></li>
+        <!-- Contenido por defecto: -->
+        <li th:if="${usuario.correo == null}" th:text="${'No tiene correo'}"></li>
+    </ul>
+    <a th:href="@{/arreglo}">Ver listado...</a><br><br>
+    <a th:href="@{/api/rp/bar}">Ejemplo...</a>
+</body>
+</html>
